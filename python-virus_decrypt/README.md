@@ -2,7 +2,8 @@
 
 **_STEP ONE_**
 
-First mission is to decrypt the HuRAP code into a human readable form. In order to accomplish this, need to proceed with the following steps:•HuRAP will be given as the first command-line argument in a textfile(for example ashurap.txt). The given 0s and 1s are actually binary representations of different characters according to SHuCKSCII(alternate to ASCII) and it will be provided as the second command-line argument also in a text file in a tab-delimited format as shown below:
+First mission is to decrypt the HuRAP code into a human readable form. In order to accomplish this, need to proceed with the following steps:
+•HuRAP will be given as the first command-line argument in a textfile(for example ashurap.txt). The given 0s and 1s are actually binary representations of different characters according to SHuCKSCII(alternate to ASCII) and it will be provided as the second command-line argument also in a text file in a tab-delimited format as shown below:
 
 CHAR<TAB>HEXVALUE<TAB>DESCRIPTION
 
