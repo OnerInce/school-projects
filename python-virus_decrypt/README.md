@@ -5,7 +5,7 @@
 First mission is to decrypt the HuRAP code into a human readable form. In order to accomplish this, need to proceed with the following steps:
 •HuRAP will be given as the first command-line argument in a textfile(for example ashurap.txt). The given 0s and 1s are actually binary representations of different characters according to SHuCKSCII(alternate to ASCII) and it will be provided as the second command-line argument also in a text file in a tab-delimited format as shown below:
 
-CHAR<TAB>HEXVALUE<TAB>DESCRIPTION
+CHAR  HEXVALUE  DESCRIPTION
 
 So in order to find the normal character representation of HuRAP, first need to convert it to its hexadecimal representation and then to its normal character representation by looking the obtained hexadecimal values up in the SHuCKSCII table. For instance, let the first 16 digits of HuRAP 0111001101110101, which when converted to the hexadecimal system correspond to 7375. When look these values up in the SHuCKSCII table, will be found that for the given sample table above these values correspond  to','(comma) and'*'(asterisk) characters respectively. Need to perform this operation on the whole input file (except for the special line which starts with a character other than 0 or 1, and needs to be excluded) to get its hexadecimal representation.
 
