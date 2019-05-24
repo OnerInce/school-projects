@@ -13,31 +13,33 @@ Once done with the conversion of HuRAP to its character representation, the char
 
 It is a type of substitution cipher in which each letter in the original text is ’shifted’ a certain number of places down or up the alphabet. For example, with a shift of 1, A would be replaced by B, B would become C, etc.  Here, the shift amount is called the Key. For an alphabet in which there are N letters, encryption would look like this: 
 
-encryptedchar = (originalchar + shiftamount) mod N 
+*encryptedchar = (originalchar + shiftamount) mod N*
 
-Decryption, on the other hand, is performed as:originalchar = (encryptedchar - shiftamount) mod N
+Decryption, on the other hand, is performed as:
 
-Mission is to decrypt the obtained character representation of HuRAP and get the original version of the program. The alphabet on which your decryption function will operate contains all characters given in the SHuCKSCII table,in the order starting from the top position and ending at the last character in the table when read from the first column of the shuckscii.txt file (this means that ’letters’ in this alphabet will not only be standard letters, but also numbers and all kinds of special characters). The key (shift amount) will be given as a 2’s complement binary number in the special line inhurap.txt. When removed the special character (it can be any char other than 0 or 1) from the beginning of the line, will get a string of 0s and 1s(of arbitrary length) that can directly convert to a decimal value to obtain the key(which can be any integer, positive or negative)
+*originalchar = (encryptedchar - shiftamount) mod N*
+
+Mission is to decrypt the obtained character representation of HuRAP and get the original version of the program. The alphabet on which decryption function will operate contains all characters given in the SHuCKSCII table, in the order starting from the top position and ending at the last character in the table when read from the first column of the shuckscii.txt file. The key (shift amount) will be given as a 2’s complement binary number in the special line inhurap.txt. When removed the special character from the beginning of the line, will get a string of 0s and 1s that can directly convert to a decimal value to obtain the key.
 
 **_STEP TWO_**
 
-Once have obtained the original version of the HuRAP, it is time to write the virus which will alter the original code, so that any computer or device executing it will not harm any humans, but terminate themselves instead. For this mission, will be given a list of strings that need to be substituted, and the corresponding virus strings that will replace them. This information will be given as the third command-line argument in a colon-separated text file(for example viruscode.txt) with the following format:
+Once obtained the original version of the HuRAP, it is time to write the virus which will alter the original code, so that any computer executing it will not harm any humans, but terminate themselves instead. For this mission, will be given a list of strings that need to be substituted, and the corresponding virus strings that will replace them. This information will be given as the third command-line argument in a colon-separated text file with the following format:
 
-STRINGTOBESUBSTITUTED<:>VIRUSSTRINGA 
+*STRING_TO_BE_SUBSTITUTED<:>VIRUS_STRING_A *
 
-Your second mission is to write a virus which plants the virus strings instead of certain key strings (let’s call them killer strings) in the original code that are responsible for turning the machines into killers. For this part of mission need to be careful about the following:
+Second mission is to write a virus which plants the virus strings instead of certain key strings (call them killer strings) in the original code that are responsible for turning the machines into killers:
 
-• Have to search every line of the original code for every given killer string, and if a killer string is found replace it with its virus counterpart
-• Every line may have 0 or more killer strings in it. All of them need to be replaced
-• When virus encounters a killer string within a line, only that string should be replaced by its counterpart virus string, and no other character should be changed within the line
-• The killer words are case sensitive:  if ’kill’ is a killer word, the words ’Kill’ or ’KILL’ are not
+- Have to search every line of the original code for every given killer string, and if a killer string is found replace it with its virus counterpart
+- Every line may have 0 or more killer strings in it. All of them need to be replaced
+- When virus encounters a killer string within a line, only that string should be replaced by its counterpart virus string, and no other character should be changed within the line
+- The killer words are case sensitive:  if ’kill’ is a killer word, the words ’Kill’ or ’KILL’ are not
 
 **_STEP THREE_**
 
-For this part of the mission, expected to finish virus program, so that it will convert the final version of virus-infected HuRAP produced in Mission 01 to the expected sequence of 0s and 1s, so that deactivated virus code won't be noticed by coders of the virus. In order to accomplish this, need to take the following steps:
+For this part of the mission, expected to finish virus program, so that it will convert the final version of virus-infected HuRAP produced in Mission 01 to the expected sequence of 0s and 1s, so that deactivated virus code won't be noticed by coders of the virus:
 
-• First need to encrypt the code using the described encryption scheme of the shift cipher and the same key that was used for decryption in Mission 00
-• Then use the SHuCKSCII table to convert the encrypted code to its  hexadecimal representation
-• Finally, convert the hexadecimal representation into the corresponding binary representation. All steps should produce output with results.
+- First need to encrypt the code using the described encryption scheme of the shift cipher and the same key that was used for decryption in Mission 00
+- Then use the SHuCKSCII table to convert the encrypted code to its  hexadecimal representation
+- Finally, convert the hexadecimal representation into the corresponding binary representation. All steps should produce output with results.
 
 
