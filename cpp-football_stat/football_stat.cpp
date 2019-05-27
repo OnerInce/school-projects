@@ -31,7 +31,7 @@ typedef struct firstListNode{
 
 }firstListNode;
 
-// Hangi devrede cok gol atildigini bulan fonksiyon
+// Function to find which half has most goals
 
 int calculatePeriod(firstListNode* head){
 
@@ -63,7 +63,7 @@ int calculatePeriod(firstListNode* head){
 
 }
 
-// En cok gol atan oyunculari bul
+// Find top scorers using Map
 
 void calculateTopScorer(MyMap scorerMap){
 	    
@@ -91,7 +91,7 @@ void calculateTopScorer(MyMap scorerMap){
     }
 }
 
-// Hat-trick yapan oyunculari bulup print et
+// Find players who scored 3 or more goals in a single match
 
 void hatTrickFinder(firstListNode* head){
 
@@ -121,7 +121,7 @@ void hatTrickFinder(firstListNode* head){
 
 firstListNode* addNodeFirstList(firstListNode* root1, char* footballerName, char* footballerTeamName, char* awayTeamName, int minuteOfGoal, int matchID){
 
-    //LinkList bossa
+    // If it is empty
 
     if(root1 == NULL){
 
@@ -143,7 +143,7 @@ firstListNode* addNodeFirstList(firstListNode* root1, char* footballerName, char
 
     firstListNode* iterDuplicate = root1;
 
-    // Futbolcu zaten varsa yeniden ekleme yapma, double list'e gol bilgisini ekleme yap
+    // If player already in list, just add the goal information
 
     while(iterDuplicate!= NULL){
 
@@ -156,7 +156,7 @@ firstListNode* addNodeFirstList(firstListNode* root1, char* footballerName, char
 
                 secondListNode* iter2 = iterDuplicate->nextListPointer;
 
-                // En basa ekleme yapilacaksa
+                // If need to add goal information to the head of the list
 
                 if(iter2->matchID > matchID){
 
@@ -185,7 +185,7 @@ firstListNode* addNodeFirstList(firstListNode* root1, char* footballerName, char
 
     }
 
-    //Ilk futbolcudan kucuk eleman ekleniyorsa
+    // If need to add a player to the head of the list
 
     if(strcmp(root1->footballerName, footballerName) > 0){
 
@@ -207,7 +207,7 @@ firstListNode* addNodeFirstList(firstListNode* root1, char* footballerName, char
 
     firstListNode* iter = root1;
 	
-	//Iterate ederek listede artan siraya gore eklenmesi gereken yeri bulup ekleme yap
+	// Find the correct place to add with iterating over the list
 
     while(iter->firstListNextPointer != NULL && strcmp(iter->firstListNextPointer->footballerName, footballerName) < 0){
 
@@ -240,7 +240,7 @@ int main(int argc, char *argv[]) {
 	
 	freopen (argv[3],"w",stdout);
 
-    MyMap playerToNumberOfGoals; // Key: oyuncu ismi, value : attigi gol sayisi
+    MyMap playerToNumberOfGoals; // Key: player name, value : number of goals
 
     firstListNode * rootFirstList = NULL;
 
@@ -273,7 +273,7 @@ int main(int argc, char *argv[]) {
 					strcpy(footballer, p);
 					std::string str(footballer);
 
-					if ( playerToNumberOfGoals.find(footballer) == playerToNumberOfGoals.end() ) { // Map'i guncelle
+					if ( playerToNumberOfGoals.find(footballer) == playerToNumberOfGoals.end() ) { // Update the map
 
 						playerToNumberOfGoals[footballer] = 1;
 					}
