@@ -21,7 +21,7 @@ Each client will have send and receive buffers (that must be implemented as queu
 
 <img src="client_communication.JPG" width="600" height="325">
 
-**Logs*
+**Logs**
 
 Every network activity must be logged.  Thus,  each client will have its own log which willstore the information about the sent, received, and forwarded messages. Each log entry should store the following information:
 - Timestamp:  the date and time of the activity
